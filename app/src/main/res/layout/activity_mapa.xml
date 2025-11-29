@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".UI_Buscadores.MapaActivity">
+
+    <!-- FONDO SUPERIOR (banner) -->
+    <ImageView
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/mapita_upn_header"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- TÍTULO PRINCIPAL -->
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="MAPA DEL PISO 6"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/headerBackground" />
+
+    <!-- SUBTÍTULO -->
+    <TextView
+        android:id="@+id/txtSubtituloMapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Pabellón D"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView28" />
+
+    <!-- BOTÓN VOLVER -->
+    <Button
+        android:id="@+id/btnVolverAtras"
+        android:layout_width="65dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Volver"
+        app:layout_constraintBottom_toBottomOf="@id/headerBackground"
+        app:layout_constraintEnd_toEndOf="@id/headerBackground"
+        app:layout_constraintTop_toTopOf="@id/headerBackground"
+        app:layout_constraintVertical_bias="0.521" />
+
+    <!-- PANEL DE INFORMACIÓN DEL IPS -->
+    <LinearLayout
+        android:id="@+id/panelInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#202020"
+        android:elevation="8dp"
+        android:alpha="0.95"
+        app:layout_constraintTop_toBottomOf="@id/headerBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txtAulaActualMapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aula actual: ---"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/txtEstadoIPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado IPS: buscando señal..."
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            android:textColor="#B0BEC5"/>
+    </LinearLayout>
+
+    <!-- CONTENEDOR DEL MAPA -->
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/panelInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- MAPA REAL -->
+        <com.jdca.proyectofinal.UI_Buscadores.ZoomImageView
+            android:id="@+id/zoomableMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:src="@drawable/pabellon_d_piso6"/>
+
+        <!-- OVERLAY -->
+        <com.jdca.proyectofinal.UI_Buscadores.MapOverlayView
+            android:id="@+id/mapOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+
+    </FrameLayout>
+
+    <!-- BOTÓN RESET DEL MAPA -->
+    <Button
+        android:id="@+id/btnResetMapa"
+        android:layout_width="129dp"
+        android:layout_height="49dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="#B40000"
+        android:elevation="10dp"
+        android:text="RESET"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/mapContainer"
+        app:layout_constraintEnd_toEndOf="@id/mapContainer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

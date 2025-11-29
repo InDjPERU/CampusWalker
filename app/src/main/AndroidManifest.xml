@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- PERMISOS BLE -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+
+    <!-- BLE Android 12+ -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- Android <=11 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Asegurar que el dispositivo soporte BLE -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProyectoFinal"
+        tools:targetApi="31">
+
+        <!-- LOGIN (pantalla inicial) -->
+        <activity
+            android:name=".UI_Login.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- MENÚ PRINCIPAL -->
+        <activity
+            android:name=".UI_Login.MenuPrincipalActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- BUSCAR AULA -->
+        <activity
+            android:name=".UI_Buscadores.BuscarAulaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- INFO BUSCAR AULA -->
+        <activity
+            android:name=".UI_Buscadores.InfoBuscarAulaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- ESCANEAR AULA CERCANA (BLE) -->
+        <activity
+            android:name=".UI_Buscadores.EscanearAulaCercanaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- MAPA IPS -->
+        <activity
+            android:name=".UI_Buscadores.MapaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- VALIDACION TECNICA -->
+        <activity
+            android:name=".UI_Buscadores.ValidacionTecnicaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+
+    </application>
+
+</manifest>

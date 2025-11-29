@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010"
+    tools:context=".UI_Buscadores.ValidacionTecnicaActivity">
+
+    <!-- FONDO SUPERIOR (banner) -->
+    <ImageView
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/mapita_upn_header"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- Spinner Aula real -->
+
+    <TextView
+        android:id="@+id/txtTituloValidacion"
+        android:layout_width="270dp"
+        android:layout_height="65dp"
+        android:padding="16dp"
+        android:text="Validación técnica"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <TextView
+        android:id="@+id/txtLabelAulaReal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="76dp"
+        android:text="Aula REAL donde estás:"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloValidacion" />
+
+    <Button
+        android:id="@+id/btnVolverAtras"
+        android:layout_width="68dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="Volver"
+        app:layout_constraintBottom_toTopOf="@+id/spAulaReal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toEndOf="@+id/txtTituloValidacion"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Spinner
+        android:id="@+id/spAulaReal"
+        android:layout_width="385dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtLabelAulaReal" />
+
+    <!-- Distancia REAL a la puerta (en metros) -->
+    <EditText
+        android:id="@+id/edtDistanciaReal"
+        android:layout_width="381dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Distancia real a la puerta (m)"
+        android:inputType="numberDecimal"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0BEC5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spAulaReal" />
+
+    <!-- Botón Iniciar -->
+    <Button
+        android:id="@+id/btnIniciarPrueba"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00796B"
+        android:text="Iniciar prueba"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/edtDistanciaReal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDetenerPrueba"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <!-- Botón Detener -->
+    <Button
+        android:id="@+id/btnDetenerPrueba"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#C62828"
+        android:text="Detener y generar reporte"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/edtDistanciaReal"
+        app:layout_constraintStart_toEndOf="@id/btnIniciarPrueba"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <!-- Estado en vivo -->
+
+    <!-- Resumen de errores -->
+
+    <!-- Reporte largo (scroll) -->
+    <TextView
+        android:id="@+id/txtEstadoLecturas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Sin lecturas aún"
+        android:textColor="#CFD8DC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnIniciarPrueba" />
+
+    <TextView
+        android:id="@+id/txtResumenErrores"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Resumen de errores: ---"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEstadoLecturas" />
+
+    <ScrollView
+        android:id="@+id/scrollReporte"
+        android:layout_width="381dp"
+        android:layout_height="215dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtResumenErrores"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txtReporteCompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:text="Reporte aún no generado."
+            android:textColor="#ECEFF1"
+            android:textSize="14sp" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
