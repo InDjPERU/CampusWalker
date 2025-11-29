@@ -158,12 +158,4 @@ Incluye IPS, mapa en tiempo real, suavizado y optimización del escaneo BLE.
 Este proyecto se publica solo con fines académicos.
 No está destinado para distribución comercial sin autorización.
 
----
 
-Si deseas también puedo prepararte:
-
-✅ **CHANGELOG**
-✅ **Manual de usuario en PDF**
-✅ **Manual técnico**
-✅ **README en inglés**
-Solo pídelo.
